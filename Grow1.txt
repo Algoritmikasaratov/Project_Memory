@@ -1,0 +1,43 @@
+
+class Assistant():
+    def __init__(self, name, position):
+        self.name = name #имя
+        self.position = position #должность
+ 
+    def print_info(self):
+        print('Имя:', self.name)
+        print('Должность:', self.position)
+ 
+    def water(self, vegetable):
+        vegetable.water_saturation = vegetable.water_saturation + 1
+        print("Вы полили образец:", vegetable.kind,"\n")
+   
+    def fertilize(self, vegetable):
+        vegetable.fertilizer_saturation = vegetable.fertilizer_saturation + 1
+        print("Вы внесли удобрение на образец:", vegetable.kind,"\n")
+ 
+    
+    def turn_light(self,vegetable):
+        vegetable.light_saturation = vegetable.light_saturation + 1
+        print("Вы включили дополнительное освещение для образца:", vegetable.kind,"\n")
+ 
+    
+    def checkresult(self, result1,result2,result3):
+        if result1 == True and result2 == True and result3 == True:
+            self.print_info()
+            print("Прошёл аттестацию и допущен до работы с настоящими опытными образцами.")
+        else:
+            self.print_info()
+            print("Не прошёл аттестацию. Отправляется на пересдачу.")
+
+class Vegetable():
+    def __init__(self, kind, water_saturation, fertilizer_saturation, light_saturation):
+        self.kind = kind #вид
+        self.water_saturation = water_saturation 
+        self.fertilizer_saturation = fertilizer_saturation 
+        self.light_saturation = light_saturation 
+    def print_info(self):
+        print('Вид образца:', self.kind)
+        print('Обеспеченность водой:', self.water_saturation)
+        print('Обеспеченность питательными веществами:', self.fertilizer_saturation)
+        print('Обеспеченность светом:', self.light_saturation)
